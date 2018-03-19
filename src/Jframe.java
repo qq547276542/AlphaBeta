@@ -17,7 +17,7 @@ static int  w=width/n,h=height/n,beg=60;
 ArrayList<Point> points = null;  
 public Jframe(){   
    points = new ArrayList<Point>();  
-   this.setTitle("老西五子棋v1.0（电脑弱智版）");  
+   this.setTitle("老西五子棋v1.0（by eason）");  
    this.setSize(width+100,height+100);   
    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
    setVisible(true);   
