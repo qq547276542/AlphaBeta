@@ -12,8 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;  
   
 class Jframe extends JFrame{   
-static int width=800,height=800,n=15,r=23;  
-static int  w=width/n,h=height/n,beg=60;  
+static int width=650,height=650,n=13,r=23;  
+static int  w=width/n,h=height/n,beg=50;  
 ArrayList<Point> points = null;  
 public Jframe(){   
    points = new ArrayList<Point>();  

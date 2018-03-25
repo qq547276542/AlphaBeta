@@ -101,11 +101,27 @@ class AB {
         if(a<b)return a;  
         return b;  
     }  
+    static boolean hasround(int i,int j){ //如果周围没子，先不考虑
+    	int fx[]={-2,-1,0,1,2};
+    	int fy[]={-2,-1,0,1,2};
+    	for(int a=0;a<5;a++){
+    		for(int b=0;b<5;b++){
+    			if(fx[a]==0&&fy[b]==0)
+    				continue;
+    			int newx=i+fx[a],newy=j+fy[b];
+    			if(newx<0||newx>n||newy<0||newy>n)continue;
+    			if(G[newx][newy]!=0)
+    				return true;
+    		}
+    	}
+    	return false;
+    }
     static int alphabeta(int G[][],int player,int alpha,int beta,int depth){  
         if(depth==2) return getScore(G);  
         for(int i=0;i<=n;i++){  
             for(int j=0;j<=n;j++){  
                 if(G[i][j]!=0)continue;  
+                if(!hasround(i,j))continue;
                 int curG[][]=new int[20][20];  
                 copy(G,curG);  
                 curG[i][j]=player;  
@@ -305,7 +321,7 @@ class AB {
         score=h2[0]*10-h2[2]*8+h3[0]*100-h3[2]*100+s3[0]*20-s3[2]*20;  
         score+=h4[0]*1000-h4[2]*1500;  
         score+=s4[0]*30-s4[2]*30;  
-        score+=hs5[0]*5000-hs5[2]*5000;  
+        score+=hs5[0]*10000-hs5[2]*10000;  
         return score;  
     }  
 }  
